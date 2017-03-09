@@ -126,11 +126,12 @@ module.exports = function(grunt) {
 
     eslint: {
       target: [
-        'app/**/*.js',
-        'public/client/**/*.js',
         'Gruntfile.js',
-        'server-config.js',
-        'server.js'
+        'app/**/*.js',
+        'public/**/*.js',
+        'lib/**/*.js',
+        './*.js',
+        'spec/**/*.js'
       ]
     },
 
@@ -161,7 +162,7 @@ module.exports = function(grunt) {
     cssmin: {
       dist: {
         files: {
-          'public/dist/<%= pkg.name %>.min.css': ['public/style.css']
+          'public/dist/style.min.css': ['public/style.css']
         }
       }
     },
