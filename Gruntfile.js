@@ -199,12 +199,12 @@ module.exports = function(grunt) {
     },
 
     shell: {
-      gitAdd: {
-        command: 'git add .'
-      },
-      gitCommit: {
-        command: 'git commit -m "hello"'
-      },
+      // gitAdd: {
+      //   command: 'git add .'
+      // },
+      // gitCommit: {
+      //   command: 'git commit -m "hello"'
+      // },
       prodServer: {
         command: 'git push live master'
       }
@@ -229,12 +229,13 @@ module.exports = function(grunt) {
   ////////////////////////////////////////////////////
 
   grunt.registerTask('test', [
+
+    'eslint',
     'mochaTest'
   ]);
 
   grunt.registerTask('build', [
 
-    'eslint',
     'concat',
     'uglify',
     'cssmin'
@@ -243,7 +244,7 @@ module.exports = function(grunt) {
   grunt.registerTask('upload', function(n) {
     if (grunt.option('prod')) {
       // add your production server task here
-      grunt.task.run([ 'shell' ]);
+      grunt.task.run([ 'shell:prodServer' ]);
     } else {
       grunt.task.run([ 'server-dev' ]);
     }
