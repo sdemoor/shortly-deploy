@@ -199,10 +199,16 @@ module.exports = function(grunt) {
     },
 
     shell: {
+      gitAdd: {
+        command: 'git add .'
+      },
+      gitCommit: {
+        command: 'git commit'
+      },
       prodServer: {
         command: 'git push live master'
       }
-    },
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
