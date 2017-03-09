@@ -203,7 +203,7 @@ module.exports = function(grunt) {
         command: 'git add .'
       },
       gitCommit: {
-        command: 'git commit'
+        command: 'git commit -m "hello"'
       },
       prodServer: {
         command: 'git push live master'
