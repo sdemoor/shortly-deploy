@@ -1,3 +1,4 @@
+//var db = require('../config');
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var Promise = require('bluebird');
@@ -9,10 +10,13 @@ var userSchema = mongoose.Schema({
 
 var User = mongoose.model('User', userSchema);
 
-User.comparePassword = function(candidatePassword, savedPassword, cb) {
-  bcrypt.compare(candidatePassword, savedPassword, function(err, isMatch) {
-    if (err) { return cb(err); }
-    cb(null, isMatch);
+User.prototype.comparePassword = function(candidatePassword, cb) {
+  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+    if (err) {
+      return cb(err);
+    } else {
+      cb(null, isMatch);
+    }
   });
 };
 
