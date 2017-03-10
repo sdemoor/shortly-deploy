@@ -7,9 +7,9 @@ module.exports = function(grunt) {
       target: [
         'Gruntfile.js',
         'app/**/*.js',
-        'public/**/*.js',
+        'public/**/*.js'
         // './*.js',
-        'spec/**/*.js'
+        // 'spec/**/*.js'
       ]
     },
 
@@ -116,7 +116,6 @@ module.exports = function(grunt) {
   ////////////////////////////////////////////////////
 
   grunt.registerTask('test', [
-
     'eslint',
     'mochaTest'
   ]);
